@@ -1,0 +1,21 @@
+
+
+{% extends 'base.html' %} 
+{% block head_title %}{{ post.title }}{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+	<table>
+		<tbody>
+			<tr>
+				<td>{{ post.body }}</td>
+				<td><img src="{{ post.image.url }}" style="width: 80%" /></td>
+			</tr>
+			<tr><td>{{ post.posted }}</td> <td></td> </tr>
+		</tbody>
+	</table>
+	
+{% endblock %}
+
+
+
