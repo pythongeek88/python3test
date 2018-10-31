@@ -12,8 +12,10 @@ class Blog(models.Model):
 	image = models.FileField(null=True, blank=True)
 	posted = models.DateTimeField(db_index=True, auto_now_add=True)
 	category = models.ForeignKey('blog.Category', None)
-	def title_slug(self):
-         self.slug = slugify(self.title)
+	
+	def save(self,  *args, **kwargs):
+		self.slug = slugify(self.title)
+		return super(Blog, self).save(*args, **kwargs)
 	
 	def __unicode__(self):
 		return '%s' % self.title
