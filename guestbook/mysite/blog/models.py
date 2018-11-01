@@ -9,7 +9,7 @@ class Blog(models.Model):
 	title = models.CharField(max_length=100, unique=True)
 	slug = models.SlugField(('slug'), max_length=100, unique=True, blank=True)
 	body = models.TextField()
-	image = models.FileField(null=True, blank=True)
+	image = models.FileField(null=False, blank=False, default='no_image_available.png')
 	posted = models.DateTimeField(db_index=True, auto_now_add=True)
 	category = models.ForeignKey('blog.Category', None)
 	
